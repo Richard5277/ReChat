@@ -122,8 +122,8 @@
 			children = (
 				AADD2B4F1DEDEAD10082EC60 /* Extensions.swift */,
 				AADD2B501DEDEAD10082EC60 /* KeyboardAnimation.swift */,
-				AADD2B521DEDEAD10082EC60 /* LoginRegisterViewControllerExtension.swift */,
 				AADD2B4E1DEDEAD10082EC60 /* ChatViewControllerExtension.swift */,
+				AADD2B521DEDEAD10082EC60 /* LoginRegisterViewControllerExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";

@@ -23,8 +23,6 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.viewDidLoad()
         view.backgroundColor = UIColor(r: 61, g: 91, b: 151, a: 1)
         
-        facebookLoginButton.delegate = self
-        
         setUpInputsView()
         setUpView()
         setupSegementedView()
@@ -39,6 +37,7 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
             print("Login Error: \(error)")
         }
         print("Successfully Login with Facebook")
+        loginFirebaseWithFacebook()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -116,13 +115,17 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
         return button
     }()
     
-    let facebookLoginButton: FBSDKLoginButton = {
-        let button = FBSDKLoginButton()
+    lazy var customFacebookLoginButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .yellow
+        button.setTitle("Login With Facebook", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(handleFacebookLogin), for: .touchUpInside)
         return button
     }()
     
-    let nameInput: UITextField = {
+        let nameInput: UITextField = {
         let input = UITextField()
         input.placeholder = "Name:"
         input.textAlignment = .left
@@ -179,7 +182,7 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
-        view.addSubview(facebookLoginButton)
+        view.addSubview(customFacebookLoginButton)
         
         // inputs container
         inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -193,11 +196,11 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
         loginRegisterButton.topAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 6).isActive = true
         loginRegisterButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
         loginRegisterButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        
-        facebookLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        facebookLoginButton.topAnchor.constraint(equalTo: loginRegisterButton.bottomAnchor, constant: 8).isActive = true
-        facebookLoginButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
-        facebookLoginButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+ 
+        customFacebookLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        customFacebookLoginButton.topAnchor.constraint(equalTo: loginRegisterButton.bottomAnchor, constant: 8).isActive = true
+        customFacebookLoginButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
+        customFacebookLoginButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
     func setUpInputsView(){
         inputsContainerView.addSubview(nameInput)
@@ -242,33 +245,4 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     }
     
-    func handleLoginRegister(){
-        if loginRegisterSegementController.selectedSegmentIndex == 0 {
-            handleLogin()
-        }else {
-            handleRegister()
-        }
-    }
-    
-    func handleLogin(){
-        guard let email = emailInput.text, let password = passwordInput.text else {
-            print("Unvalid User")
-            return
-        }
-        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
-            if error != nil{
-                print(error ?? "ERROR")
-                return
-            }
-            print("Login Success")
-            self.dismiss(animated: true, completion: nil)
-        })
-    }
- 
-}
-
-extension UIColor{
-    convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat){
-        self.init(red: r/255, green: g/255, blue: b/255, alpha: a)
-    }
 }
