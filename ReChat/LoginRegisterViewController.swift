@@ -18,10 +18,11 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
     var emailHeightAnchor: NSLayoutConstraint?
     var passwordHeightAnchor: NSLayoutConstraint?
     var seperatorAfterNameHeightAnchor: NSLayoutConstraint?
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(r: 61, g: 91, b: 151, a: 1)
+//        view.backgroundColor = UIColor(r: 0, g: 0, b: 0, a: 1)
+        view.backgroundColor = MyColor.mainBlack
         
         setUpInputsView()
         setUpView()
@@ -47,9 +48,12 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
     lazy var loginRegisterSegementController: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Login","Register"])
         sc.translatesAutoresizingMaskIntoConstraints = false
+        sc.backgroundColor = MyColor.mainBlack
+        let attr = NSDictionary(object: UIFont(name: "SourceCodePro-Regular", size: 20.0)!, forKey: NSFontAttributeName as NSCopying)
+        sc.setTitleTextAttributes(attr as?[AnyHashable : Any], for: .normal)
         sc.layer.cornerRadius = 5
         sc.layer.masksToBounds = true
-        sc.tintColor = UIColor.white
+        sc.tintColor = MyColor.mainRed
         sc.selectedSegmentIndex = 1
         
         sc.addTarget(self, action: #selector(handleLoginRegisterToggle), for: .valueChanged)
@@ -87,7 +91,7 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     lazy var profile: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "profileImage")
+        imageView.image = UIImage(named: "blank")
         imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
@@ -96,7 +100,7 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
     }()
     let inputsContainerView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = MyColor.mainRed
         view.layer.cornerRadius = 5
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -105,21 +109,22 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
     lazy var loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor(r: 80, g: 101, b: 161, a: 1)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: 3)
-        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = MyColor.mainRed
+        button.titleLabel?.font = UIFont(name: "SourceCodePro-Regular", size: 26)
+        button.setTitleColor(MyColor.mainBlack, for: .normal)
         button.layer.cornerRadius = 5
         button.layer.masksToBounds = true
-        button.setTitle("Register", for: .normal)
+        button.setTitle("REGISTER", for: .normal)
         button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
         return button
     }()
     
     lazy var customFacebookLoginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .yellow
-        button.setTitle("Login With Facebook", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.backgroundColor = .clear
+        button.tintColor = .white
+        button.setTitle("f  LOGIN WITH FACEBOOK", for: .normal)
+        button.titleLabel?.font = UIFont(name: "SourceCodePro-Semibold", size: 20)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleFacebookLogin), for: .touchUpInside)
         return button
@@ -134,7 +139,7 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
     }()
     let seperatorAfterName: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.gray
+        view.backgroundColor = MyColor.mainBlack
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -147,7 +152,7 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
     }()
     let seperatorAfterEmail: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.gray
+        view.backgroundColor = MyColor.mainBlack
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -166,8 +171,8 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         // profile image
         profile.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profile.heightAnchor.constraint(equalToConstant:130).isActive = true
-        profile.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -200).isActive = true
+        profile.heightAnchor.constraint(equalToConstant:120).isActive = true
+        profile.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -210).isActive = true
         profile.bottomAnchor.constraint(equalTo: loginRegisterSegementController.topAnchor, constant: -12).isActive = true
         
         // login register segemented
@@ -188,7 +193,7 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
         inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         inputsContainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         inputsContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
-        inputsContainerViewHightAnchor = inputsContainerView.heightAnchor.constraint(equalToConstant: 160)
+        inputsContainerViewHightAnchor = inputsContainerView.heightAnchor.constraint(equalToConstant: 150)
         inputsContainerViewHightAnchor?.isActive = true
         
         // login register button

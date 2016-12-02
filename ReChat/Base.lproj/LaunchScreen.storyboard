@@ -21,12 +21,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="gC2-VF-lpM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="gC2-VF-lpM">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gC2-VF-lpM" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Pif-5x-8Pa"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="gC2-VF-lpM" secondAttribute="bottom" id="R0R-2x-FG4"/>
+                            <constraint firstItem="gC2-VF-lpM" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="gEI-8R-7hL"/>
+                            <constraint firstAttribute="trailing" secondItem="gC2-VF-lpM" secondAttribute="trailing" id="nAD-HB-p5a"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -35,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="loading" width="640" height="1136"/>
+        <image name="bg" width="2667" height="4733"/>
     </resources>
 </document>

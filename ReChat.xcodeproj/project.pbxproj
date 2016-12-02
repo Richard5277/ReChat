@@ -11,7 +11,11 @@
 		AA9AF5EA1DEDE4A100ACC884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA9AF5E81DEDE4A100ACC884 /* LaunchScreen.storyboard */; };
 		AA9AF5F21DEDE4F800ACC884 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA9AF5F11DEDE4F800ACC884 /* GoogleService-Info.plist */; };
 		AA9AF5F41DEDE51B00ACC884 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = AA9AF5F31DEDE51B00ACC884 /* Podfile */; };
+		AABBDFF61DF0ADDD00AA7D47 /* ReChatTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABBDFF51DF0ADDD00AA7D47 /* ReChatTabBar.swift */; };
 		AACD95121DEE37F100C752B2 /* ChatInputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACD95111DEE37F100C752B2 /* ChatInputContainerView.swift */; };
+		AAD6F5671DF0F0F90025548F /* SourceCodePro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AAD6F5661DF0F0F90025548F /* SourceCodePro-Regular.ttf */; };
+		AAD6F5691DF0F1800025548F /* SourceCodePro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AAD6F5681DF0F1800025548F /* SourceCodePro-Black.ttf */; };
+		AAD6F56B1DF0F22B0025548F /* SourceCodePro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AAD6F56A1DF0F22B0025548F /* SourceCodePro-Semibold.ttf */; };
 		AADD2B591DEDEAD10082EC60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD2B4B1DEDEAD10082EC60 /* AppDelegate.swift */; };
 		AADD2B5A1DEDEAD10082EC60 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD2B4C1DEDEAD10082EC60 /* ChatMessageCell.swift */; };
 		AADD2B5B1DEDEAD10082EC60 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD2B4D1DEDEAD10082EC60 /* ChatViewController.swift */; };
@@ -25,7 +29,6 @@
 		AADD2B631DEDEAD10082EC60 /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD2B551DEDEAD10082EC60 /* NewMessageController.swift */; };
 		AADD2B641DEDEAD10082EC60 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD2B561DEDEAD10082EC60 /* User.swift */; };
 		AADD2B651DEDEAD10082EC60 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD2B571DEDEAD10082EC60 /* UserCell.swift */; };
-		AADD2B661DEDEAD10082EC60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD2B581DEDEAD10082EC60 /* ViewController.swift */; };
 		DDA893C80F95EDE1E3E59402 /* Pods_ReChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A0DE97E73DC565FB67423F1 /* Pods_ReChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,8 +42,12 @@
 		AA9AF5EB1DEDE4A100ACC884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA9AF5F11DEDE4F800ACC884 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		AA9AF5F31DEDE51B00ACC884 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		AABBDFF51DF0ADDD00AA7D47 /* ReChatTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReChatTabBar.swift; sourceTree = "<group>"; };
 		AACD95111DEE37F100C752B2 /* ChatInputContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatInputContainerView.swift; sourceTree = "<group>"; };
 		AACD95131DEE4BAC00C752B2 /* ReChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReChat.entitlements; sourceTree = "<group>"; };
+		AAD6F5661DF0F0F90025548F /* SourceCodePro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceCodePro-Regular.ttf"; path = "Fonts/SourceCodePro-Regular.ttf"; sourceTree = SOURCE_ROOT; };
+		AAD6F5681DF0F1800025548F /* SourceCodePro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceCodePro-Black.ttf"; path = "Fonts/SourceCodePro-Black.ttf"; sourceTree = SOURCE_ROOT; };
+		AAD6F56A1DF0F22B0025548F /* SourceCodePro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceCodePro-Semibold.ttf"; path = "Fonts/SourceCodePro-Semibold.ttf"; sourceTree = SOURCE_ROOT; };
 		AADD2B4B1DEDEAD10082EC60 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AADD2B4C1DEDEAD10082EC60 /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		AADD2B4D1DEDEAD10082EC60 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -54,7 +61,6 @@
 		AADD2B551DEDEAD10082EC60 /* NewMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 		AADD2B561DEDEAD10082EC60 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AADD2B571DEDEAD10082EC60 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
-		AADD2B581DEDEAD10082EC60 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +119,19 @@
 			isa = PBXGroup;
 			children = (
 				AACD95111DEE37F100C752B2 /* ChatInputContainerView.swift */,
+				AABBDFF51DF0ADDD00AA7D47 /* ReChatTabBar.swift */,
 			);
 			name = views;
+			sourceTree = "<group>";
+		};
+		AAD6F5631DF0EF7C0025548F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AAD6F5681DF0F1800025548F /* SourceCodePro-Black.ttf */,
+				AAD6F5661DF0F0F90025548F /* SourceCodePro-Regular.ttf */,
+				AAD6F56A1DF0F22B0025548F /* SourceCodePro-Semibold.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		AADD2B671DEDEB840082EC60 /* Extensions */ = {
@@ -131,7 +148,6 @@
 		AADD2B681DEDEB920082EC60 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AADD2B581DEDEAD10082EC60 /* ViewController.swift */,
 				AADD2B551DEDEAD10082EC60 /* NewMessageController.swift */,
 				AADD2B511DEDEAD10082EC60 /* LoginRegisterViewController.swift */,
 				AADD2B541DEDEAD10082EC60 /* MessageController.swift */,
@@ -154,6 +170,7 @@
 		AADD2B6A1DEDED280082EC60 /* other */ = {
 			isa = PBXGroup;
 			children = (
+				AAD6F5631DF0EF7C0025548F /* Fonts */,
 				AA9AF5E61DEDE4A100ACC884 /* Assets.xcassets */,
 				AA9AF5E81DEDE4A100ACC884 /* LaunchScreen.storyboard */,
 				AA9AF5F11DEDE4F800ACC884 /* GoogleService-Info.plist */,
@@ -243,7 +260,10 @@
 			files = (
 				AA9AF5F41DEDE51B00ACC884 /* Podfile in Resources */,
 				AA9AF5EA1DEDE4A100ACC884 /* LaunchScreen.storyboard in Resources */,
+				AAD6F5691DF0F1800025548F /* SourceCodePro-Black.ttf in Resources */,
+				AAD6F56B1DF0F22B0025548F /* SourceCodePro-Semibold.ttf in Resources */,
 				AA9AF5F21DEDE4F800ACC884 /* GoogleService-Info.plist in Resources */,
+				AAD6F5671DF0F0F90025548F /* SourceCodePro-Regular.ttf in Resources */,
 				AA9AF5E71DEDE4A100ACC884 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,8 +326,8 @@
 				AADD2B5D1DEDEAD10082EC60 /* Extensions.swift in Sources */,
 				AADD2B651DEDEAD10082EC60 /* UserCell.swift in Sources */,
 				AADD2B5E1DEDEAD10082EC60 /* KeyboardAnimation.swift in Sources */,
+				AABBDFF61DF0ADDD00AA7D47 /* ReChatTabBar.swift in Sources */,
 				AADD2B5C1DEDEAD10082EC60 /* ChatViewControllerExtension.swift in Sources */,
-				AADD2B661DEDEAD10082EC60 /* ViewController.swift in Sources */,
 				AADD2B631DEDEAD10082EC60 /* NewMessageController.swift in Sources */,
 				AADD2B611DEDEAD10082EC60 /* Message.swift in Sources */,
 				AADD2B5F1DEDEAD10082EC60 /* LoginRegisterViewController.swift in Sources */,
