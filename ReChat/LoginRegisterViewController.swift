@@ -21,9 +21,8 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.backgroundColor = UIColor(r: 0, g: 0, b: 0, a: 1)
         view.backgroundColor = MyColor.mainBlack
-        
+        navigationController?.navigationBar.barTintColor = MyColor.mainBlack
         setUpInputsView()
         setUpView()
         setupSegementedView()
@@ -41,12 +40,12 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
         loginFirebaseWithFacebook()
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .default
+//    }
     
     lazy var loginRegisterSegementController: UISegmentedControl = {
-        let sc = UISegmentedControl(items: ["Login","Register"])
+        let sc = UISegmentedControl(items: ["LOGIN","REGISTER"])
         sc.translatesAutoresizingMaskIntoConstraints = false
         sc.backgroundColor = MyColor.mainBlack
         let attr = NSDictionary(object: UIFont(name: "SourceCodePro-Regular", size: 20.0)!, forKey: NSFontAttributeName as NSCopying)

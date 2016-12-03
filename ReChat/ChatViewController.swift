@@ -57,7 +57,7 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
         collectionView?.contentInset = UIEdgeInsetsMake(8, 0, 8, 0)
         collectionView?.keyboardDismissMode = .interactive
         
-        collectionView?.backgroundColor = UIColor.white
+        collectionView?.backgroundColor = MyColor.mainBlack
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
         
         setUpKeyboardObserver()

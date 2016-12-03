@@ -26,7 +26,7 @@ class UserCell: UITableViewCell {
             if let seconds = message?.time?.doubleValue {
                 let timestamp = NSDate(timeIntervalSince1970: seconds)
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "hh:mm:ss a"
+                dateFormatter.dateFormat = "hh:mm a"
                 timeLabel.text = dateFormatter.string(from: timestamp as Date)
                 
             }
@@ -52,6 +52,7 @@ class UserCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         textLabel?.frame = CGRect(x: 60, y: textLabel!.frame.origin.y - 3, width: textLabel!.frame.width, height: textLabel!.frame.height)
         detailTextLabel?.frame = CGRect(x: 60, y: detailTextLabel!.frame.origin.y + 3, width: self.frame.width - 90, height: detailTextLabel!.frame.height)
     }
@@ -69,12 +70,15 @@ class UserCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = UIColor.darkGray
+        label.textColor = MyColor.textWhite
         return label
     }()
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        backgroundColor = MyColor.mainBlack
+        textLabel?.textColor = MyColor.textWhite
+        detailTextLabel?.textColor = MyColor.textWhite
         addSubview(profileImageView)
         addSubview(timeLabel)
         

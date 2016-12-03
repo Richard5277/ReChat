@@ -15,10 +15,24 @@ class MessageController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = MyColor.mainBlack
+        tableView.backgroundColor = MyColor.mainBlack
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "new"), style: .plain, target: self, action: #selector(handleNewMessage))
+
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "add-red"), landscapeImagePhone: UIImage(named: "add-red"), style: .plain, target: self, action: #selector(handleNewMessage))
+        
+        //set up custom add button
+        let button: UIButton = UIButton(type: .custom)
+        button.setImage(UIImage(named: "add-red"), for: .normal)
+        button.addTarget(self, action: #selector(handleNewMessage), for: .touchUpInside)
+        button.frame = CGRect(x: 0, y: 0, width: 36, height: 36)
+        let barButton = UIBarButtonItem(customView: button)
+        navigationItem.rightBarButtonItem = barButton
+        
         checkIfUserLogedIn()
         tableView.separatorStyle = .singleLine
+        tableView.separatorColor = MyColor.mainRed
+        tableView.tableFooterView = UIView() // MARK:Hide Cell Separator When No Content
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
         tableView.allowsMultipleSelectionDuringEditing = true //MARK: Delete button
     }

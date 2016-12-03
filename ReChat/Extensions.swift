@@ -48,8 +48,9 @@ extension UIColor{
 }
 
 struct MyColor {
-    static var mainRed: UIColor = UIColor(r: 158, g: 29, b: 32, a: 1)
+    static var mainRed: UIColor = UIColor(r: 168, g: 29, b: 32, a: 1)
     static var mainBlack: UIColor = UIColor(r: 0, g: 0, b: 0, a: 1)
+    static var textWhite: UIColor = UIColor(r: 255, g: 255, b: 255, a: 1)
 }
 
 

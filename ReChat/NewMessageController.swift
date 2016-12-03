@@ -17,6 +17,9 @@ class NewMessageController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundColor = MyColor.mainBlack
+        navigationController?.navigationBar.barTintColor = MyColor.mainBlack
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: MyColor.textWhite]
         navigationItem.title = "New Message"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancle", style: .plain, target: self, action: #selector(cancleMessage))
        fetchUser()
