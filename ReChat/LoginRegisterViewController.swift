@@ -170,7 +170,7 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         // profile image
         profile.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profile.heightAnchor.constraint(equalToConstant:120).isActive = true
+        profile.heightAnchor.constraint(equalToConstant:130).isActive = true
         profile.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -210).isActive = true
         profile.bottomAnchor.constraint(equalTo: loginRegisterSegementController.topAnchor, constant: -12).isActive = true
         

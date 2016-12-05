@@ -46,8 +46,6 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
             
         }, withCancel: nil)
     }
-
-    let chatbar = ReChatTabBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()

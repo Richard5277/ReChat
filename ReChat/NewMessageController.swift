@@ -16,7 +16,9 @@ class NewMessageController: UITableViewController {
     var users = [User]()
     
     override func viewDidLoad() {
+        title = "Contacts"
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
         tableView.backgroundColor = MyColor.mainBlack
         navigationController?.navigationBar.barTintColor = MyColor.mainBlack
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: MyColor.textWhite]
@@ -45,7 +47,8 @@ class NewMessageController: UITableViewController {
         return cell
     }
     
-    var messageControler: MessageController?
+//    var messageControler: MessageController?
+    var messageControler: MessageView?
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         dismiss(animated: true, completion: { () in

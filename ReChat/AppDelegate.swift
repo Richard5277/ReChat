@@ -20,9 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: MessageController())
+        
+        let mainNav = UINavigationController(rootViewController: ReChatTabBar())
+        mainNav.navigationBar.barTintColor = MyColor.mainBlack
+        mainNav.navigationBar.tintColor = MyColor.textWhite
+        mainNav.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: MyColor.textWhite]
+        
+        window?.rootViewController = mainNav
+        UIApplication.shared.statusBarStyle = .lightContent
         return true
-    }
+    }  
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
