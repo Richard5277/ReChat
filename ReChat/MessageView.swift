@@ -23,21 +23,6 @@ class MessageView: UIViewController, UITableViewDelegate, UITableViewDataSource 
         return container
     }()
     
-    let rechatIcon: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "rechat")
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    lazy var addButton: UIButton = {
-        let button: UIButton = UIButton(type: .custom)
-        button.setImage(UIImage(named: "add"), for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleLogout), for: .touchUpInside)
-        return button
-    }()
-    
     let chatTable: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -60,14 +45,6 @@ class MessageView: UIViewController, UITableViewDelegate, UITableViewDataSource 
         return cell
     }
     
-//    func handleNewMessage(){
-//        let newMessageController = NewMessageController()
-//        let navController = UINavigationController(rootViewController: newMessageController)
-//        newMessageController.messageControler = self
-//        present(navController, animated: true, completion: nil)
-//    }
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Messages"
@@ -81,8 +58,6 @@ class MessageView: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         view.addSubview(topContainer)
         view.addSubview(chatTable)
-        topContainer.addSubview(rechatIcon)
-        topContainer.addSubview(addButton)
         
         topContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         topContainer.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -92,18 +67,8 @@ class MessageView: UIViewController, UITableViewDelegate, UITableViewDataSource 
         chatTable.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         chatTable.topAnchor.constraint(equalTo: topContainer.bottomAnchor).isActive = true
         chatTable.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
-//        chatTable.heightAnchor.constraint(equalToConstant: 900).isActive = true
         chatTable.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -8).isActive = true
         
-        rechatIcon.centerXAnchor.constraint(equalTo: topContainer.centerXAnchor).isActive = true
-        rechatIcon.topAnchor.constraint(equalTo: topContainer.topAnchor, constant: 20).isActive = true
-        rechatIcon.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        rechatIcon.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        
-        addButton.rightAnchor.constraint(equalTo: topContainer.rightAnchor, constant: -12).isActive = true
-        addButton.topAnchor.constraint(equalTo: topContainer.topAnchor, constant: 30).isActive = true
-        addButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        addButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -115,18 +80,4 @@ class MessageView: UIViewController, UITableViewDelegate, UITableViewDataSource 
         self.chatTable.reloadData()
     }
 
-    
-    func handleLogout(){
-        
-        do {
-            try FIRAuth.auth()?.signOut()
-        }catch let logoutError {
-            print(logoutError)
-        }
-        
-        let loginRegisterVC = LoginRegisterViewController()
-        self.present(loginRegisterVC, animated: true, completion: nil)
-    }
-
-    
 }

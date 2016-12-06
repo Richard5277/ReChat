@@ -41,6 +41,22 @@ extension UIImageView {
     }
 }
 
+extension UIImage {
+    
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
+
+}
+
 extension UIColor{
     convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat){
         self.init(red: r/255, green: g/255, blue: b/255, alpha: a)

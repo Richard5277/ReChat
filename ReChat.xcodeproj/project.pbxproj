@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AA3FA7F31DF4B56D0056BC7D /* MessageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FA7F21DF4B56D0056BC7D /* MessageViewExtension.swift */; };
+		AA47C1C91DF6058900DDD5AB /* contactDetailViwe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA47C1C81DF6058900DDD5AB /* contactDetailViwe.swift */; };
+		AA47C1CB1DF606FB00DDD5AB /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA47C1CA1DF606FB00DDD5AB /* SettingView.swift */; };
 		AA6375FB1DF26ECE00C81E38 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6375FA1DF26ECE00C81E38 /* MessageView.swift */; };
 		AA9AF5E71DEDE4A100ACC884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9AF5E61DEDE4A100ACC884 /* Assets.xcassets */; };
 		AA9AF5EA1DEDE4A100ACC884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA9AF5E81DEDE4A100ACC884 /* LaunchScreen.storyboard */; };
@@ -39,6 +41,8 @@
 		33CCFB2C9B4A2203A39F2D09 /* Pods-ReChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReChat/Pods-ReChat.debug.xcconfig"; sourceTree = "<group>"; };
 		9A0DE97E73DC565FB67423F1 /* Pods_ReChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA3FA7F21DF4B56D0056BC7D /* MessageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewExtension.swift; sourceTree = "<group>"; };
+		AA47C1C81DF6058900DDD5AB /* contactDetailViwe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contactDetailViwe.swift; sourceTree = "<group>"; };
+		AA47C1CA1DF606FB00DDD5AB /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		AA6375FA1DF26ECE00C81E38 /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		AA9AF5DC1DEDE4A100ACC884 /* ReChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9AF5E61DEDE4A100ACC884 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 			children = (
 				AACD95111DEE37F100C752B2 /* ChatInputContainerView.swift */,
 				AABBDFF51DF0ADDD00AA7D47 /* ReChatTabBar.swift */,
+				AA47C1C81DF6058900DDD5AB /* contactDetailViwe.swift */,
+				AA47C1CA1DF606FB00DDD5AB /* SettingView.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -339,6 +345,8 @@
 				AADD2B5F1DEDEAD10082EC60 /* LoginRegisterViewController.swift in Sources */,
 				AADD2B591DEDEAD10082EC60 /* AppDelegate.swift in Sources */,
 				AADD2B5B1DEDEAD10082EC60 /* ChatViewController.swift in Sources */,
+				AA47C1CB1DF606FB00DDD5AB /* SettingView.swift in Sources */,
+				AA47C1C91DF6058900DDD5AB /* contactDetailViwe.swift in Sources */,
 				AA3FA7F31DF4B56D0056BC7D /* MessageViewExtension.swift in Sources */,
 				AADD2B641DEDEAD10082EC60 /* User.swift in Sources */,
 				AADD2B621DEDEAD10082EC60 /* MessageController.swift in Sources */,

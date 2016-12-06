@@ -60,22 +60,29 @@ class ReChatTabBar: UITabBarController, UITabBarControllerDelegate {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        let tabOne = MessageController()
+
         let tabOne = MessageView()
-        let tabOneBarItem = UITabBarItem(title: "Tab 1", image: UIImage(named: "message-black"), selectedImage: UIImage(named: "message-red"))
+        let resizedMessageWhite = UIImage().resizeImage(image: UIImage(named: "message-white")!, newWidth: 33)
+        let resizedMessageRed = UIImage().resizeImage(image: UIImage(named: "message-red")!, newWidth: 33)
+        let tabOneBarItem = UITabBarItem(title: "Messages", image: resizedMessageWhite.withRenderingMode(.alwaysOriginal), selectedImage: resizedMessageRed.withRenderingMode(.alwaysOriginal))
         tabOne.tabBarItem = tabOneBarItem
         
         let tabTwo = NewMessageController()
-//        tabTwo.navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "OK", style: .plain, target: self, action: #selector(tryOMG))
-        let tabTwoBarItem2 = UITabBarItem(title: "Tab 2", image: UIImage(named: "contact-black"), selectedImage: UIImage(named: "contact-red"))
+        let resizedContactWhite = UIImage().resizeImage(image: UIImage(named: "contact-white")!, newWidth: 30)
+        let resizedContactRed = UIImage().resizeImage(image: UIImage(named: "contact-red")!, newWidth: 30)
+        let tabTwoBarItem2 = UITabBarItem(title: "Contact", image: resizedContactWhite.withRenderingMode(.alwaysOriginal), selectedImage: resizedContactRed.withRenderingMode(.alwaysOriginal))
         tabTwo.tabBarItem = tabTwoBarItem2
         
         let tabThree = TabThreeViewController()
-        let tabThreeItem = UITabBarItem(title: "Tab 1", image: UIImage(named: "moment-black"), selectedImage: UIImage(named: "moment-red"))
+        let resizedMomentWhite = UIImage().resizeImage(image: UIImage(named: "moment-white")!, newWidth: 30)
+        let resizedMomentRed = UIImage().resizeImage(image: UIImage(named: "moment-red")!, newWidth: 30)
+        let tabThreeItem = UITabBarItem(title: "Moments", image: resizedMomentWhite.withRenderingMode(.alwaysOriginal), selectedImage: resizedMomentRed.withRenderingMode(.alwaysOriginal))
         tabThree.tabBarItem = tabThreeItem
 
         let tabFour = TabFourViewController()
-        let tabFourBarItem = UITabBarItem(title: "Tab 1", image: UIImage(named: "setting-black"), selectedImage: UIImage(named: "setting-red"))
+        let resizedSettingWhite = UIImage().resizeImage(image: UIImage(named: "setting-white")!, newWidth: 30)
+        let resizedSettingRed = UIImage().resizeImage(image: UIImage(named: "setting-red")!, newWidth: 30)
+        let tabFourBarItem = UITabBarItem(title: "Setting", image: resizedSettingWhite.withRenderingMode(.alwaysOriginal), selectedImage: resizedSettingRed.withRenderingMode(.alwaysOriginal))
         tabFour.tabBarItem = tabFourBarItem
 
         
@@ -86,31 +93,10 @@ class ReChatTabBar: UITabBarController, UITabBarControllerDelegate {
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        navigationItem.title = viewController.title!
+        navigationItem.title = viewController.title
         print("Selected: \(viewController.title!)")
     }
 }
-class TabOneViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = MyColor.mainBlack
-        self.title = "Tab 1"
-    }
-    
-}
-class TabTwoViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = MyColor.mainBlack
-        self.title = "Tab 2"
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-    }
- 
-}
-
 
 class TabThreeViewController: UIViewController {
     override func viewDidLoad() {
@@ -123,19 +109,6 @@ class TabThreeViewController: UIViewController {
     }
     
 }
-
-class TabFourViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = MyColor.mainBlack
-        self.title = "Setting"
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-    }
-    
-}
-
 
 
 

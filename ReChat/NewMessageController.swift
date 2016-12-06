@@ -18,13 +18,10 @@ class NewMessageController: UITableViewController {
     override func viewDidLoad() {
         title = "Contacts"
         super.viewDidLoad()
+        tableView.separatorColor = MyColor.mainRed
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = MyColor.mainBlack
-        navigationController?.navigationBar.barTintColor = MyColor.mainBlack
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: MyColor.textWhite]
-        navigationItem.title = "New Message"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancle", style: .plain, target: self, action: #selector(cancleMessage))
-       fetchUser()
+        fetchUser()
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
     }
     
@@ -46,21 +43,18 @@ class NewMessageController: UITableViewController {
         }
         return cell
     }
-    
-//    var messageControler: MessageController?
-    var messageControler: MessageView?
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dismiss(animated: true, completion: { () in
-            let currentUser = self.users[indexPath.row]
-            self.messageControler?.showChatControllerRorUser(user: currentUser)
-        })
-    }
 
-    func cancleMessage(){
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detaiViwe = contactDetailViwe(user: self.users[indexPath.row])
+        let navController = UINavigationController(rootViewController: detaiViwe)
+        detaiViwe.chatView = self // keeping a reference of the view you wont to go back
+        present(navController, animated: true, completion: nil)
+    }
+    
+    func cancelMessage(){
         dismiss(animated: true, completion: nil)
     }
-
+    
     func fetchUser(){
         ref.child("users").observe(.childAdded, with: {(snapShot) in
             if let dictionary = snapShot.value as? [String: AnyObject]{
@@ -79,4 +73,20 @@ class NewMessageController: UITableViewController {
         }, withCancel: nil)
         
     }
+    
+    func showChatControllerRorUser(user: User){
+        
+        let chatViewController = ChatViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        chatViewController.user = user
+        self.navigationController?.pushViewController(chatViewController, animated: true)
+        
+    }
+
 }
+
+
+
+
+
+
+

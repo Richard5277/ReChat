@@ -124,6 +124,17 @@ extension MessageView {
         
     }
     
+    func handleLogout(){
+        do {
+            try FIRAuth.auth()?.signOut()
+        }catch let logoutError {
+            print(logoutError)
+        }
+        
+        let loginRegisterVC = LoginRegisterViewController()
+        self.present(loginRegisterVC, animated: true, completion: nil)
+    }
+
     func fetchUserAndSetupNavBarTitle(){
         guard let uid = FIRAuth.auth()?.currentUser?.uid else{
             return
