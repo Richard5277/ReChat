@@ -11,6 +11,7 @@
 		AA47C1C91DF6058900DDD5AB /* contactDetailViwe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA47C1C81DF6058900DDD5AB /* contactDetailViwe.swift */; };
 		AA47C1CB1DF606FB00DDD5AB /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA47C1CA1DF606FB00DDD5AB /* SettingView.swift */; };
 		AA6375FB1DF26ECE00C81E38 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6375FA1DF26ECE00C81E38 /* MessageView.swift */; };
+		AA96F7251DF89DC500AB982A /* MomentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA96F7241DF89DC500AB982A /* MomentView.swift */; };
 		AA9AF5E71DEDE4A100ACC884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9AF5E61DEDE4A100ACC884 /* Assets.xcassets */; };
 		AA9AF5EA1DEDE4A100ACC884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA9AF5E81DEDE4A100ACC884 /* LaunchScreen.storyboard */; };
 		AA9AF5F21DEDE4F800ACC884 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA9AF5F11DEDE4F800ACC884 /* GoogleService-Info.plist */; };
@@ -45,6 +46,7 @@
 		AA47C1C81DF6058900DDD5AB /* contactDetailViwe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contactDetailViwe.swift; sourceTree = "<group>"; };
 		AA47C1CA1DF606FB00DDD5AB /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		AA6375FA1DF26ECE00C81E38 /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		AA96F7241DF89DC500AB982A /* MomentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentView.swift; sourceTree = "<group>"; };
 		AA9AF5DC1DEDE4A100ACC884 /* ReChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9AF5E61DEDE4A100ACC884 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA9AF5E91DEDE4A100ACC884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				AABBDFF51DF0ADDD00AA7D47 /* ReChatTabBar.swift */,
 				AA47C1C81DF6058900DDD5AB /* contactDetailViwe.swift */,
 				AA47C1CA1DF606FB00DDD5AB /* SettingView.swift */,
+				AA96F7241DF89DC500AB982A /* MomentView.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				AADD2B651DEDEAD10082EC60 /* UserCell.swift in Sources */,
 				AADD2B5E1DEDEAD10082EC60 /* KeyboardAnimation.swift in Sources */,
 				AAB257CC1DF78AB700C5E942 /* contactDetailExtension.swift in Sources */,
+				AA96F7251DF89DC500AB982A /* MomentView.swift in Sources */,
 				AABBDFF61DF0ADDD00AA7D47 /* ReChatTabBar.swift in Sources */,
 				AADD2B5C1DEDEAD10082EC60 /* ChatViewControllerExtension.swift in Sources */,
 				AADD2B631DEDEAD10082EC60 /* NewMessageController.swift in Sources */,

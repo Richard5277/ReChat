@@ -73,7 +73,7 @@ class ReChatTabBar: UITabBarController, UITabBarControllerDelegate {
         let tabTwoBarItem2 = UITabBarItem(title: "Contact", image: resizedContactWhite.withRenderingMode(.alwaysOriginal), selectedImage: resizedContactRed.withRenderingMode(.alwaysOriginal))
         tabTwo.tabBarItem = tabTwoBarItem2
         
-        let tabThree = TabThreeViewController()
+        let tabThree = MomentView()
         let resizedMomentWhite = UIImage().resizeImage(image: UIImage(named: "moment-white")!, newWidth: 30)
         let resizedMomentRed = UIImage().resizeImage(image: UIImage(named: "moment-red")!, newWidth: 30)
         let tabThreeItem = UITabBarItem(title: "Moments", image: resizedMomentWhite.withRenderingMode(.alwaysOriginal), selectedImage: resizedMomentRed.withRenderingMode(.alwaysOriginal))
@@ -98,17 +98,6 @@ class ReChatTabBar: UITabBarController, UITabBarControllerDelegate {
     }
 }
 
-class TabThreeViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = MyColor.mainBlack
-        self.title = "Moments"
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-    }
-    
-}
 
 
 

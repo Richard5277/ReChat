@@ -32,7 +32,7 @@ class contactDetailViwe: UIViewController{
     
     let markContainer: UIView = {
         let container = UIView()
-        container.backgroundColor = .blue
+        container.backgroundColor = .clear
         container.translatesAutoresizingMaskIntoConstraints = false
         return container
     }()
@@ -42,17 +42,17 @@ class contactDetailViwe: UIViewController{
         label.backgroundColor = .clear
         label.textAlignment = .left
         label.textColor = MyColor.textWhite
-        label.font = UIFont(name: "SourceCodePro-Regular", size: 16)
+        label.font = UIFont(name: "SourceCodePro-Regular", size: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     let markLabelContent : UILabel = {
         let label = UILabel()
-        label.text = "Friend"
         label.backgroundColor = .clear
+        label.text = "Friend"
         label.textAlignment = .left
         label.textColor = MyColor.textWhite
-        label.font = UIFont(name: "SourceCodePro-Regular", size: 16)
+        label.font = UIFont(name: "SourceCodePro-Regular", size: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -66,12 +66,16 @@ class contactDetailViwe: UIViewController{
     
     let albumContainer: UIView = {
         let container = UIView()
-        container.backgroundColor = .yellow
+//        container.backgroundColor = UIColor(r: 255, g: 255, b: 255, a: 0.1)
+        container.backgroundColor = .clear
+        container.layer.cornerRadius = 5
+        container.layer.masksToBounds = true
         container.translatesAutoresizingMaskIntoConstraints = false
         return container
     }()
     let albumLabel : UILabel = {
         let label = UILabel()
+        label.text = "Album"
         label.backgroundColor = .clear
         label.textAlignment = .left
         label.textColor = MyColor.textWhite
@@ -119,7 +123,7 @@ class contactDetailViwe: UIViewController{
         label.backgroundColor = .clear
         label.textAlignment = .left
         label.textColor = MyColor.textWhite
-        label.font = UIFont(name: "SourceCodePro-Regular", size: 16)
+        label.font = UIFont(name: "SourceCodePro-Regular", size: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -129,7 +133,7 @@ class contactDetailViwe: UIViewController{
         label.backgroundColor = .clear
         label.textAlignment = .left
         label.textColor = MyColor.textWhite
-        label.font = UIFont(name: "SourceCodePro-Regular", size: 16)
+        label.font = UIFont(name: "SourceCodePro-Regular", size: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
