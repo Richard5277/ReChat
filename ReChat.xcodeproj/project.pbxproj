@@ -15,6 +15,7 @@
 		AA9AF5EA1DEDE4A100ACC884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA9AF5E81DEDE4A100ACC884 /* LaunchScreen.storyboard */; };
 		AA9AF5F21DEDE4F800ACC884 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA9AF5F11DEDE4F800ACC884 /* GoogleService-Info.plist */; };
 		AA9AF5F41DEDE51B00ACC884 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = AA9AF5F31DEDE51B00ACC884 /* Podfile */; };
+		AAB257CC1DF78AB700C5E942 /* contactDetailExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB257CB1DF78AB700C5E942 /* contactDetailExtension.swift */; };
 		AABBDFF61DF0ADDD00AA7D47 /* ReChatTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABBDFF51DF0ADDD00AA7D47 /* ReChatTabBar.swift */; };
 		AACD95121DEE37F100C752B2 /* ChatInputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACD95111DEE37F100C752B2 /* ChatInputContainerView.swift */; };
 		AAD6F5671DF0F0F90025548F /* SourceCodePro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AAD6F5661DF0F0F90025548F /* SourceCodePro-Regular.ttf */; };
@@ -50,6 +51,7 @@
 		AA9AF5EB1DEDE4A100ACC884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA9AF5F11DEDE4F800ACC884 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		AA9AF5F31DEDE51B00ACC884 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		AAB257CB1DF78AB700C5E942 /* contactDetailExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contactDetailExtension.swift; sourceTree = "<group>"; };
 		AABBDFF51DF0ADDD00AA7D47 /* ReChatTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReChatTabBar.swift; sourceTree = "<group>"; };
 		AACD95111DEE37F100C752B2 /* ChatInputContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatInputContainerView.swift; sourceTree = "<group>"; };
 		AACD95131DEE4BAC00C752B2 /* ReChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReChat.entitlements; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				AADD2B4E1DEDEAD10082EC60 /* ChatViewControllerExtension.swift */,
 				AADD2B521DEDEAD10082EC60 /* LoginRegisterViewControllerExtension.swift */,
 				AA3FA7F21DF4B56D0056BC7D /* MessageViewExtension.swift */,
+				AAB257CB1DF78AB700C5E942 /* contactDetailExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				AADD2B5D1DEDEAD10082EC60 /* Extensions.swift in Sources */,
 				AADD2B651DEDEAD10082EC60 /* UserCell.swift in Sources */,
 				AADD2B5E1DEDEAD10082EC60 /* KeyboardAnimation.swift in Sources */,
+				AAB257CC1DF78AB700C5E942 /* contactDetailExtension.swift in Sources */,
 				AABBDFF61DF0ADDD00AA7D47 /* ReChatTabBar.swift in Sources */,
 				AADD2B5C1DEDEAD10082EC60 /* ChatViewControllerExtension.swift in Sources */,
 				AADD2B631DEDEAD10082EC60 /* NewMessageController.swift in Sources */,
