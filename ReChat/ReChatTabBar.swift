@@ -11,6 +11,8 @@ import Firebase
 
 class ReChatTabBar: UITabBarController, UITabBarControllerDelegate {
     
+    var currentUser: User?
+    
     func checkIfUserLogedIn(){
         if FIRAuth.auth()?.currentUser?.uid == nil {
             perform(#selector(handleLogout), with: nil, afterDelay: 0)
@@ -29,7 +31,7 @@ class ReChatTabBar: UITabBarController, UITabBarControllerDelegate {
             if let dictionary = snapShot.value as? [String: AnyObject] {
                 let user = User()
                 user.setValuesForKeys(dictionary)
-                //                self.setupNavBarWithUser(user: user)
+                self.currentUser = user
             }
         }, withCancel: nil)
     }
@@ -87,9 +89,6 @@ class ReChatTabBar: UITabBarController, UITabBarControllerDelegate {
 
         
         self.viewControllers = [tabOne, tabTwo, tabThree, tabFour]
-    }
-    func tryOMG(){
-        print(123)
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {

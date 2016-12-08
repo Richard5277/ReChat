@@ -196,7 +196,6 @@ class contactDetailViwe: UIViewController{
     
     
     override func viewDidLoad() {
-//        title = currentUser?.name
         title = "Profile"
         nameLabel.text = currentUser?.name
         emailLabel.text = currentUser?.email
