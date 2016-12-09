@@ -68,7 +68,7 @@ class ChatMessageCell: UICollectionViewCell {
         return tv
     }()
     
-    static let chatBubbleBlueColor: UIColor = UIColor(r: 0, g: 137, b: 249, a: 1) // MARK: Main Color
+    static let chatBubbleBlueColor: UIColor = UIColor(r: 26, g: 26, b: 34, a: 1) // MARK: Main Color
     
     let bubbleView: UIView = {
         let bubble = UIView()

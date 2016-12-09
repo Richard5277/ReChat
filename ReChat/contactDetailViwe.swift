@@ -66,7 +66,6 @@ class contactDetailViwe: UIViewController{
     
     let albumContainer: UIView = {
         let container = UIView()
-//        container.backgroundColor = UIColor(r: 255, g: 255, b: 255, a: 0.1)
         container.backgroundColor = .clear
         container.layer.cornerRadius = 5
         container.layer.masksToBounds = true
@@ -205,7 +204,6 @@ class contactDetailViwe: UIViewController{
         navigationBar.barTintColor = MyColor.mainRed
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: MyColor.textWhite]
         let leftButton =  UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelMessage))
-        
         navigationItem.leftBarButtonItem = leftButton
         view.backgroundColor = MyColor.mainBlack
         

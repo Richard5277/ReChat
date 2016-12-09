@@ -47,7 +47,7 @@ class MessageView: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Messages"
+        title = "Rechat"
         chatTable.delegate = self
         chatTable.dataSource = self
         

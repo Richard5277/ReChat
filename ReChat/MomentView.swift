@@ -13,9 +13,13 @@ import SnapKit
 class MomentView: UIViewController {
  
     var user: User?
+//    let image = UIImage(named: "camera")
+    let cameraImage = UIImage().resizeImage(image: UIImage(named: "camera")!, newWidth: 30)
     
+
     let headerImage: UIImageView = {
         let imageview = UIImageView()
+        imageview.image = UIImage(named: "leaf")
         imageview.backgroundColor = MyColor.mainRed
         imageview.translatesAutoresizingMaskIntoConstraints = false
         return imageview
@@ -38,56 +42,14 @@ class MomentView: UIViewController {
         return imageview
     }()
     
-    let momentContainer: UIView = {
-        let container = UIView()
-        container.translatesAutoresizingMaskIntoConstraints = false
-        return container
-    }()
-    
-    let momentPosterImage: UIImageView = {
-        let imageview = UIImageView()
-        imageview.translatesAutoresizingMaskIntoConstraints = false
-        return imageview
-    }()
-    
-    let momentPosterName: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let momentImageContainer: UIView = {
-        let container = UIView()
-        container.translatesAutoresizingMaskIntoConstraints = false
-        return container
-    }()
-    
-    lazy var momentImageOne: UIImageView = {
-        let imageview = UIImageView()
-        imageview.translatesAutoresizingMaskIntoConstraints = false
         
-        return imageview
-    }()
-    lazy var momentImageTwo: UIImageView = {
-        let imageview = UIImageView()
-        imageview.translatesAutoresizingMaskIntoConstraints = false
-        return imageview
-    }()
-    lazy var momentImageThree: UIImageView = {
-        let imageview = UIImageView()
-        imageview.translatesAutoresizingMaskIntoConstraints = false
-        return imageview
-    }()
-    lazy var momentImageFour: UIImageView = {
-        let imageview = UIImageView()
-        imageview.translatesAutoresizingMaskIntoConstraints = false
-        return imageview
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = MyColor.mainBlack
         self.title = "Moments"
+        let rightBarButton = UIBarButtonItem(image: cameraImage, style: .plain, target: self, action: #selector(postMoment))
+        self.navigationItem.rightBarButtonItem = rightBarButton
+        
         nameLabel.text = user?.name
         setUpView()
     }
@@ -95,6 +57,10 @@ class MomentView: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         fetchUser()
+    }
+    
+    func postMoment(){
+        print(123)
     }
     
     func fetchUser(){

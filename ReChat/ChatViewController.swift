@@ -218,7 +218,7 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
             
             // MARK:Receiving message, All Left
             cell.textView.textColor = .black
-            cell.bubbleView.backgroundColor = UIColor(r: 240, g: 240, b: 240, a: 1)
+            cell.bubbleView.backgroundColor = UIColor(r: 123, g: 209, b: 239, a: 1)
             
             cell.bubbleRightAnchor?.isActive = false
             cell.profileImageRightAnchor?.isActive = false

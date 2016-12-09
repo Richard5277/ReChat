@@ -63,37 +63,43 @@ class ReChatTabBar: UITabBarController, UITabBarControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        let tabOne = MessageView()
+        let messageTab = MessageView()
         let resizedMessageWhite = UIImage().resizeImage(image: UIImage(named: "message-white")!, newWidth: 33)
         let resizedMessageRed = UIImage().resizeImage(image: UIImage(named: "message-red")!, newWidth: 33)
-        let tabOneBarItem = UITabBarItem(title: "Messages", image: resizedMessageWhite.withRenderingMode(.alwaysOriginal), selectedImage: resizedMessageRed.withRenderingMode(.alwaysOriginal))
-        tabOne.tabBarItem = tabOneBarItem
+        let tabOneBarItem = UITabBarItem(title: "Rechat", image: resizedMessageWhite.withRenderingMode(.alwaysOriginal), selectedImage: resizedMessageRed.withRenderingMode(.alwaysOriginal))
+        messageTab.tabBarItem = tabOneBarItem
         
-        let tabTwo = NewMessageController()
+        let contactTab = NewMessageController()
         let resizedContactWhite = UIImage().resizeImage(image: UIImage(named: "contact-white")!, newWidth: 30)
         let resizedContactRed = UIImage().resizeImage(image: UIImage(named: "contact-red")!, newWidth: 30)
         let tabTwoBarItem2 = UITabBarItem(title: "Contact", image: resizedContactWhite.withRenderingMode(.alwaysOriginal), selectedImage: resizedContactRed.withRenderingMode(.alwaysOriginal))
-        tabTwo.tabBarItem = tabTwoBarItem2
+        contactTab.tabBarItem = tabTwoBarItem2
         
-        let tabThree = MomentView()
+        let momentTab = MomentView()
         let resizedMomentWhite = UIImage().resizeImage(image: UIImage(named: "moment-white")!, newWidth: 30)
         let resizedMomentRed = UIImage().resizeImage(image: UIImage(named: "moment-red")!, newWidth: 30)
         let tabThreeItem = UITabBarItem(title: "Moments", image: resizedMomentWhite.withRenderingMode(.alwaysOriginal), selectedImage: resizedMomentRed.withRenderingMode(.alwaysOriginal))
-        tabThree.tabBarItem = tabThreeItem
+        momentTab.tabBarItem = tabThreeItem
 
-        let tabFour = TabFourViewController()
+        let settingTab = TabFourViewController()
         let resizedSettingWhite = UIImage().resizeImage(image: UIImage(named: "setting-white")!, newWidth: 30)
         let resizedSettingRed = UIImage().resizeImage(image: UIImage(named: "setting-red")!, newWidth: 30)
         let tabFourBarItem = UITabBarItem(title: "Setting", image: resizedSettingWhite.withRenderingMode(.alwaysOriginal), selectedImage: resizedSettingRed.withRenderingMode(.alwaysOriginal))
-        tabFour.tabBarItem = tabFourBarItem
+        settingTab.tabBarItem = tabFourBarItem
 
         
-        self.viewControllers = [tabOne, tabTwo, tabThree, tabFour]
+        self.viewControllers = [messageTab, contactTab, momentTab, settingTab]
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         navigationItem.title = viewController.title
+        navigationItem.rightBarButtonItem = viewController.navigationItem.rightBarButtonItem
+//            UIBarButtonItem(title: "Moment", style: .plain, target: self, action: #selector(postMoment))
         print("Selected: \(viewController.title!)")
+    }
+    
+    func postMoment(){
+        print(123)
     }
 }
 
