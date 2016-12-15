@@ -55,6 +55,20 @@ class UserCell: UITableViewCell {
         
         textLabel?.frame = CGRect(x: 60, y: textLabel!.frame.origin.y - 3, width: textLabel!.frame.width, height: textLabel!.frame.height)
         detailTextLabel?.frame = CGRect(x: 60, y: detailTextLabel!.frame.origin.y + 3, width: self.frame.width - 90, height: detailTextLabel!.frame.height)
+        addSubview(profileImageView)
+        addSubview(timeLabel)
+        
+        
+        profileImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
+        profileImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 48).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        
+        timeLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        timeLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        timeLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        timeLabel.heightAnchor.constraint(equalToConstant: 48).isActive = true
+
     }
     
     let profileImageView: UIImageView = {
@@ -69,6 +83,7 @@ class UserCell: UITableViewCell {
     let timeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .right
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = MyColor.textWhite
         return label
@@ -79,20 +94,7 @@ class UserCell: UITableViewCell {
         backgroundColor = MyColor.mainBlack
         textLabel?.textColor = MyColor.textWhite
         detailTextLabel?.textColor = MyColor.textWhite
-        addSubview(profileImageView)
-        addSubview(timeLabel)
-        
-        
-        profileImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
-        profileImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 48).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 48).isActive = true
-        
-        timeLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        timeLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        timeLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        timeLabel.heightAnchor.constraint(equalToConstant: 48).isActive = true
-    }
+           }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

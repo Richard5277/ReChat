@@ -75,7 +75,7 @@ class ReChatTabBar: UITabBarController, UITabBarControllerDelegate {
         let tabTwoBarItem2 = UITabBarItem(title: "Contact", image: resizedContactWhite.withRenderingMode(.alwaysOriginal), selectedImage: resizedContactRed.withRenderingMode(.alwaysOriginal))
         contactTab.tabBarItem = tabTwoBarItem2
         
-        let momentTab = MomentView()
+        let momentTab = MomentView(collectionViewLayout: UICollectionViewFlowLayout())
         let resizedMomentWhite = UIImage().resizeImage(image: UIImage(named: "moment-white")!, newWidth: 30)
         let resizedMomentRed = UIImage().resizeImage(image: UIImage(named: "moment-red")!, newWidth: 30)
         let tabThreeItem = UITabBarItem(title: "Moments", image: resizedMomentWhite.withRenderingMode(.alwaysOriginal), selectedImage: resizedMomentRed.withRenderingMode(.alwaysOriginal))
@@ -94,12 +94,6 @@ class ReChatTabBar: UITabBarController, UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         navigationItem.title = viewController.title
         navigationItem.rightBarButtonItem = viewController.navigationItem.rightBarButtonItem
-//            UIBarButtonItem(title: "Moment", style: .plain, target: self, action: #selector(postMoment))
-        print("Selected: \(viewController.title!)")
-    }
-    
-    func postMoment(){
-        print(123)
     }
 }
 

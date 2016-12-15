@@ -10,102 +10,84 @@ import UIKit
 import Firebase
 import SnapKit
 
-class MomentView: UIViewController {
+class MomentView: UICollectionViewController,UICollectionViewDelegateFlowLayout  {
  
     var user: User?
-//    let image = UIImage(named: "camera")
-    let cameraImage = UIImage().resizeImage(image: UIImage(named: "camera")!, newWidth: 30)
-    
+    var momentHeaderCellId = "momentHeaderCellId"
+    var momentCellId = "momentCellId"
 
-    let headerImage: UIImageView = {
-        let imageview = UIImageView()
-        imageview.image = UIImage(named: "leaf")
-        imageview.backgroundColor = MyColor.mainRed
-        imageview.translatesAutoresizingMaskIntoConstraints = false
-        return imageview
-    }()
+    var moments = [Moment]()
     
-    lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        label.backgroundColor = .clear
-        label.textAlignment = .center
-        label.font = UIFont(name: "SourceCodePro-Regular", size: 20)
-        label.textColor = MyColor.textWhite
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    lazy var profileImage: UIImageView = {
-        let imageview = UIImageView()
-        imageview.backgroundColor = .yellow
-        imageview.translatesAutoresizingMaskIntoConstraints = false
-        return imageview
-    }()
-    
+    // MARK: Observe Moments from firebase
+    func observeMoments(){
         
-    override func viewDidLoad() {
+        let momentsRef = FIRDatabase.database().reference().child("moments")
+        momentsRef.observe(.childAdded, with: { (snapshot) in
+            guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
+            self.moments.append(Moment(dictionary: dictionary))
+            self.collectionView?.reloadData()
+        }, withCancel: nil)
+    }
+    
+     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = MyColor.mainBlack
+        fetchUser()
+        self.collectionView?.backgroundColor = MyColor.mainBlack
         self.title = "Moments"
+        let cameraImage = UIImage().resizeImage(image: UIImage(named: "camera")!, newWidth: 30)
         let rightBarButton = UIBarButtonItem(image: cameraImage, style: .plain, target: self, action: #selector(postMoment))
         self.navigationItem.rightBarButtonItem = rightBarButton
         
-        nameLabel.text = user?.name
-        setUpView()
+        // MARK: Change Collection View inside a viewController
+        collectionView?.delegate = self
+        collectionView?.dataSource = self
+        
+        collectionView?.register(Momentcell.self, forCellWithReuseIdentifier: momentCellId)
+        collectionView?.register(MomentHeaderCell.self, forCellWithReuseIdentifier: momentHeaderCellId)
+        
+        collectionView?.contentInset = UIEdgeInsetsMake(8, 0, 8, 0)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        fetchUser()
-    }
-    
-    func postMoment(){
-        print(123)
-    }
     
     func fetchUser(){
         guard let uid = FIRAuth.auth()?.currentUser?.uid else{ return }
         FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapShot) in
-            print(snapShot)
             if let dictionary = snapShot.value as? [String: AnyObject] {
                 let user = User()
                 user.setValuesForKeys(dictionary)
                 self.user = user
-                self.setupViewWithUser(user: user)
+                self.observeMoments()
             }
         }, withCancel: nil)
 
     }
     
-    func setupViewWithUser(user: User){
-        self.profileImage.loadImageUsingCacheWithUrlString(urlString: user.profileImageUrl!)
-        self.nameLabel.text = user.name!
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.moments.count
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var cell = UICollectionViewCell()
+        // MARK: Adding Header Image to first cell
+        if indexPath.row == 0 {
+            cell = self.collectionView?.dequeueReusableCell(withReuseIdentifier: momentHeaderCellId, for: indexPath) as! MomentHeaderCell
+            cell.setValue(self.user, forKey: "user")
+        } else {
+            let moment = moments[indexPath.row]
+            cell = self.collectionView?.dequeueReusableCell(withReuseIdentifier: momentCellId, for: indexPath) as! Momentcell
+            cell.setValue(moment, forKey: "moment")
+            cell.setValue(self.user, forKey: "user")
+        }
+        return cell
+        
     }
     
-    func setUpView(){
-        view.addSubview(headerImage)
-        headerImage.snp.makeConstraints { (headerImage) in
-            headerImage.width.equalToSuperview()
-            headerImage.centerX.equalToSuperview()
-            headerImage.top.equalToSuperview()
-            headerImage.height.equalTo(200)
-        }
-        headerImage.addSubview(profileImage)
-        profileImage.snp.makeConstraints { (profileImage) in
-            profileImage.bottom.equalToSuperview().offset(20)
-            profileImage.right.equalToSuperview().offset(-20)
-            profileImage.width.equalTo(80)
-            profileImage.height.equalTo(80)
-        }
-        headerImage.addSubview(nameLabel)
-        nameLabel.snp.makeConstraints { (nameLabel) in
-            nameLabel.centerX.equalToSuperview()
-            nameLabel.bottom.equalToSuperview().offset(-6)
-            nameLabel.width.equalTo(120)
-            nameLabel.height.equalTo(50)
-        }
+    func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let momentCellHeigth = 210 as CGFloat
+        return CGSize(width: (self.collectionView?.bounds.size.width)!, height: momentCellHeigth)
     }
-    
+
 }
 
 

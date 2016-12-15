@@ -26,6 +26,7 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
         setUpInputsView()
         setUpView()
         setupSegementedView()
+        self.hideKeyboardWhenTappedAround()
     }
 
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
@@ -39,10 +40,6 @@ class LoginRegisterViewController: UIViewController, FBSDKLoginButtonDelegate {
         print("Successfully Login with Facebook")
         loginFirebaseWithFacebook()
     }
-    
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return .default
-//    }
     
     lazy var loginRegisterSegementController: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["LOGIN","REGISTER"])

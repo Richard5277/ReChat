@@ -328,7 +328,6 @@ class TabFourViewController: UIViewController {
     func fetchUser(){
         guard let uid = FIRAuth.auth()?.currentUser?.uid else{ return }
         FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapShot) in
-            print(snapShot)
             if let dictionary = snapShot.value as? [String: AnyObject] {
                 let user = User()
                 user.setValuesForKeys(dictionary)
