@@ -25,7 +25,12 @@ class MomentView: UICollectionViewController,UICollectionViewDelegateFlowLayout 
         momentsRef.observe(.childAdded, with: { (snapshot) in
             guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
             self.moments.append(Moment(dictionary: dictionary))
-            self.collectionView?.reloadData()
+//            self.collectionView?.reloadData()
+            DispatchQueue.main.async {
+                self.collectionView?.reloadData()
+//                let indexPath = NSIndexPath(item: self.moments.count - 1, section: 0)
+//                self.collectionView?.scrollToItem(at: indexPath as IndexPath, at: .bottom, animated: true)
+            }
         }, withCancel: nil)
     }
     
@@ -33,6 +38,9 @@ class MomentView: UICollectionViewController,UICollectionViewDelegateFlowLayout 
         super.viewDidLoad()
         fetchUser()
         self.collectionView?.backgroundColor = MyColor.mainBlack
+        collectionView?.alwaysBounceVertical = true
+        collectionView?.contentInset = UIEdgeInsetsMake(0, 0, 60, 0)
+
         self.title = "Moments"
         let cameraImage = UIImage().resizeImage(image: UIImage(named: "camera")!, newWidth: 30)
         let rightBarButton = UIBarButtonItem(image: cameraImage, style: .plain, target: self, action: #selector(postMoment))
@@ -44,11 +52,9 @@ class MomentView: UICollectionViewController,UICollectionViewDelegateFlowLayout 
         
         collectionView?.register(Momentcell.self, forCellWithReuseIdentifier: momentCellId)
         collectionView?.register(MomentHeaderCell.self, forCellWithReuseIdentifier: momentHeaderCellId)
-        
-        collectionView?.contentInset = UIEdgeInsetsMake(8, 0, 8, 0)
     }
 
-    
+    // Fetch User From Database
     func fetchUser(){
         guard let uid = FIRAuth.auth()?.currentUser?.uid else{ return }
         FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapShot) in
@@ -56,10 +62,14 @@ class MomentView: UICollectionViewController,UICollectionViewDelegateFlowLayout 
                 let user = User()
                 user.setValuesForKeys(dictionary)
                 self.user = user
-                self.observeMoments()
             }
         }, withCancel: nil)
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.observeMoments()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -67,25 +77,44 @@ class MomentView: UICollectionViewController,UICollectionViewDelegateFlowLayout 
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = UICollectionViewCell()
         // MARK: Adding Header Image to first cell
         if indexPath.row == 0 {
-            cell = self.collectionView?.dequeueReusableCell(withReuseIdentifier: momentHeaderCellId, for: indexPath) as! MomentHeaderCell
-            cell.setValue(self.user, forKey: "user")
+            let cell = self.collectionView?.dequeueReusableCell(withReuseIdentifier: momentHeaderCellId, for: indexPath) as! MomentHeaderCell
+            cell.nameLabel.text = user?.name
+            cell.profileImage.loadImageUsingCacheWithUrlString(urlString: (user?.profileImageUrl)!)
+            return cell
         } else {
             let moment = moments[indexPath.row]
-            cell = self.collectionView?.dequeueReusableCell(withReuseIdentifier: momentCellId, for: indexPath) as! Momentcell
-            cell.setValue(moment, forKey: "moment")
-            cell.setValue(self.user, forKey: "user")
+            let cell = self.collectionView?.dequeueReusableCell(withReuseIdentifier: momentCellId, for: indexPath) as! Momentcell
+            cell.momentPosterName.text = moment.fromName
+            cell.momentImage.loadImageUsingCacheWithUrlString(urlString: moment.imageUrl!)
+            
+            if let uid = moment.fromId {
+                let ref = FIRDatabase.database().reference().child("users").child(uid)
+                ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                    let dictionary = snapshot.value as! [String: AnyObject]
+                    if let posterProfileImageUrl = dictionary["profileImageUrl"]{
+                        cell.momentPosterImage.loadImageUsingCacheWithUrlString(urlString: posterProfileImageUrl as! String)
+                    }
+                }, withCancel: nil)
+                
+            }
+            return cell
         }
-        return cell
         
     }
     
+    // Change Cell Height for Two Different Collection Cell
     func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let momentCellHeigth = 210 as CGFloat
-        return CGSize(width: (self.collectionView?.bounds.size.width)!, height: momentCellHeigth)
+        if indexPath.row == 0 {
+            let momentHeaderCellHeight = 130 as CGFloat
+            return CGSize(width: (self.collectionView?.bounds.size.width)!, height: momentHeaderCellHeight)
+        } else {
+            let momentCellHeigth = 210 as CGFloat
+            return CGSize(width: (self.collectionView?.bounds.size.width)!, height: momentCellHeigth)
+        }
+        
     }
 
 }

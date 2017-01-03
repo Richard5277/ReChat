@@ -20,6 +20,7 @@
 		AA9AF5F21DEDE4F800ACC884 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA9AF5F11DEDE4F800ACC884 /* GoogleService-Info.plist */; };
 		AA9AF5F41DEDE51B00ACC884 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = AA9AF5F31DEDE51B00ACC884 /* Podfile */; };
 		AAB257CC1DF78AB700C5E942 /* contactDetailExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB257CB1DF78AB700C5E942 /* contactDetailExtension.swift */; };
+		AAB82F7E1E0268D70037C0A1 /* SettingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB82F7D1E0268D70037C0A1 /* SettingExtension.swift */; };
 		AABBDFF61DF0ADDD00AA7D47 /* ReChatTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABBDFF51DF0ADDD00AA7D47 /* ReChatTabBar.swift */; };
 		AABC966D1E01FE6E00694A7B /* MomentHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC966C1E01FE6E00694A7B /* MomentHeaderCell.swift */; };
 		AACD95121DEE37F100C752B2 /* ChatInputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACD95111DEE37F100C752B2 /* ChatInputContainerView.swift */; };
@@ -35,7 +36,6 @@
 		AADD2B5F1DEDEAD10082EC60 /* LoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD2B511DEDEAD10082EC60 /* LoginRegisterViewController.swift */; };
 		AADD2B601DEDEAD10082EC60 /* LoginRegisterViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD2B521DEDEAD10082EC60 /* LoginRegisterViewControllerExtension.swift */; };
 		AADD2B611DEDEAD10082EC60 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD2B531DEDEAD10082EC60 /* Message.swift */; };
-		AADD2B621DEDEAD10082EC60 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD2B541DEDEAD10082EC60 /* MessageController.swift */; };
 		AADD2B631DEDEAD10082EC60 /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD2B551DEDEAD10082EC60 /* NewMessageController.swift */; };
 		AADD2B641DEDEAD10082EC60 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD2B561DEDEAD10082EC60 /* User.swift */; };
 		AADD2B651DEDEAD10082EC60 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD2B571DEDEAD10082EC60 /* UserCell.swift */; };
@@ -61,6 +61,7 @@
 		AA9AF5F11DEDE4F800ACC884 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		AA9AF5F31DEDE51B00ACC884 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		AAB257CB1DF78AB700C5E942 /* contactDetailExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contactDetailExtension.swift; sourceTree = "<group>"; };
+		AAB82F7D1E0268D70037C0A1 /* SettingExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingExtension.swift; sourceTree = "<group>"; };
 		AABBDFF51DF0ADDD00AA7D47 /* ReChatTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReChatTabBar.swift; sourceTree = "<group>"; };
 		AABC966C1E01FE6E00694A7B /* MomentHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentHeaderCell.swift; sourceTree = "<group>"; };
 		AACD95111DEE37F100C752B2 /* ChatInputContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatInputContainerView.swift; sourceTree = "<group>"; };
@@ -77,7 +78,6 @@
 		AADD2B511DEDEAD10082EC60 /* LoginRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewController.swift; sourceTree = "<group>"; };
 		AADD2B521DEDEAD10082EC60 /* LoginRegisterViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewControllerExtension.swift; sourceTree = "<group>"; };
 		AADD2B531DEDEAD10082EC60 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		AADD2B541DEDEAD10082EC60 /* MessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
 		AADD2B551DEDEAD10082EC60 /* NewMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 		AADD2B561DEDEAD10082EC60 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AADD2B571DEDEAD10082EC60 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -167,6 +167,7 @@
 				AA3FA7F21DF4B56D0056BC7D /* MessageViewExtension.swift */,
 				AAB257CB1DF78AB700C5E942 /* contactDetailExtension.swift */,
 				AA47F97E1DFA49030023C46D /* MomentViewExtension.swift */,
+				AAB82F7D1E0268D70037C0A1 /* SettingExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -176,7 +177,6 @@
 			children = (
 				AADD2B551DEDEAD10082EC60 /* NewMessageController.swift */,
 				AADD2B511DEDEAD10082EC60 /* LoginRegisterViewController.swift */,
-				AADD2B541DEDEAD10082EC60 /* MessageController.swift */,
 				AADD2B4D1DEDEAD10082EC60 /* ChatViewController.swift */,
 				AA6375FA1DF26ECE00C81E38 /* MessageView.swift */,
 			);
@@ -361,6 +361,7 @@
 				AABBDFF61DF0ADDD00AA7D47 /* ReChatTabBar.swift in Sources */,
 				AADD2B5C1DEDEAD10082EC60 /* ChatViewControllerExtension.swift in Sources */,
 				AADD2B631DEDEAD10082EC60 /* NewMessageController.swift in Sources */,
+				AAB82F7E1E0268D70037C0A1 /* SettingExtension.swift in Sources */,
 				AADD2B611DEDEAD10082EC60 /* Message.swift in Sources */,
 				AA47F97F1DFA49030023C46D /* MomentViewExtension.swift in Sources */,
 				AADD2B5F1DEDEAD10082EC60 /* LoginRegisterViewController.swift in Sources */,
@@ -373,7 +374,6 @@
 				AA3FA7F31DF4B56D0056BC7D /* MessageViewExtension.swift in Sources */,
 				AADD2B641DEDEAD10082EC60 /* User.swift in Sources */,
 				AA890D3A1DFDC88F00E9FEAC /* Moment.swift in Sources */,
-				AADD2B621DEDEAD10082EC60 /* MessageController.swift in Sources */,
 				AA6375FB1DF26ECE00C81E38 /* MessageView.swift in Sources */,
 				AADD2B5A1DEDEAD10082EC60 /* ChatMessageCell.swift in Sources */,
 				AACD95121DEE37F100C752B2 /* ChatInputContainerView.swift in Sources */,

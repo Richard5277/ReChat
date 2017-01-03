@@ -10,8 +10,9 @@ import UIKit
 import Firebase
 import SnapKit
 
-class TabFourViewController: UIViewController {
+class SettingView: UIViewController {
     var user: User?
+    
     let rechatIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "rechat")
@@ -32,13 +33,13 @@ class TabFourViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    let profileImage: UIImageView = {
+    var profileImage: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .purple
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    let changeProfileImageButton: UIButton = {
+    lazy var changeProfileImageButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = MyColor.textWhite
         button.backgroundColor = UIColor(r: 255, g: 255, b: 255, a: 0.1)
@@ -46,6 +47,7 @@ class TabFourViewController: UIViewController {
         button.layer.masksToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Change", for: .normal)
+        button.addTarget(self, action: #selector(changeProfielImageForCurrentUser), for: .touchUpInside)
         return button
     }()
     
@@ -156,9 +158,12 @@ class TabFourViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = MyColor.mainBlack
         self.title = "Setting"
-        
-        setUpView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         fetchUser()
+        setUpView()
     }
     
     func handleLogout(){

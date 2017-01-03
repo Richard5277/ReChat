@@ -81,7 +81,7 @@ class ReChatTabBar: UITabBarController, UITabBarControllerDelegate {
         let tabThreeItem = UITabBarItem(title: "Moments", image: resizedMomentWhite.withRenderingMode(.alwaysOriginal), selectedImage: resizedMomentRed.withRenderingMode(.alwaysOriginal))
         momentTab.tabBarItem = tabThreeItem
 
-        let settingTab = TabFourViewController()
+        let settingTab = SettingView()
         let resizedSettingWhite = UIImage().resizeImage(image: UIImage(named: "setting-white")!, newWidth: 30)
         let resizedSettingRed = UIImage().resizeImage(image: UIImage(named: "setting-red")!, newWidth: 30)
         let tabFourBarItem = UITabBarItem(title: "Setting", image: resizedSettingWhite.withRenderingMode(.alwaysOriginal), selectedImage: resizedSettingRed.withRenderingMode(.alwaysOriginal))

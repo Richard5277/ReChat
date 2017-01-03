@@ -10,8 +10,6 @@ import UIKit
 
 class MomentHeaderCell: UICollectionViewCell {
     
-    var user: User?
-    
     let headerImage: UIImageView = {
         let imageview = UIImageView()
         imageview.image = UIImage(named: "leaf")
@@ -24,7 +22,7 @@ class MomentHeaderCell: UICollectionViewCell {
         let label = UILabel()
         label.backgroundColor = .clear
         label.textAlignment = .center
-        label.font = UIFont(name: "SourceCodePro-Regular", size: 20)
+        label.font = UIFont(name: "SourceCodePro-Semibold", size: 24)
         label.textColor = MyColor.textWhite
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -40,7 +38,6 @@ class MomentHeaderCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clear
-        nameLabel.text = user?.name
         
         addSubview(headerImage)
         headerImage.snp.makeConstraints { (headerImage) in
@@ -61,12 +58,13 @@ class MomentHeaderCell: UICollectionViewCell {
         headerImage.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { (nameLabel) in
             nameLabel.centerX.equalToSuperview()
-            nameLabel.bottom.equalToSuperview().offset(-12)
-            nameLabel.width.equalTo(160)
+            nameLabel.bottom.equalToSuperview().offset(-6)
+            nameLabel.width.equalTo(220)
             nameLabel.height.equalTo(35)
             
         }
         
+
     }
     
     required init?(coder aDecoder: NSCoder) {
